@@ -1,155 +1,205 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/checkout.css">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./css/checkout.css" />
+    <link rel="manifest" href="manifest.json" />
 
     <script src="./js/indexedDB.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <script>
-        window.addEventListener("offline", () => {
-            console.log("You are offline! Trying to reconnect......");
-            Toastify({
-                text: "You are offline! Trying to reconnect......",
-                duration: 3000,
-                close: true,
-                gravity: "top", // `top` or `bottom`
-                position: "right", // `left`, `center` or `right`
-                stopOnFocus: true, // Prevents dismissing of toast on hover
-                style: {
-                    background: "linear-gradient(to left, #ff5f6d, blue)",
-                },
-                onClick: function () { } // Callback after click
-            }).showToast();
-
-        });
-        const formData = {};
-        const handleChange = (e) => {
-            const { name, value } = e.target;
-            formData[name] = value;
+      window.addEventListener("offline", () => {
+        console.log("You are offline! Trying to reconnect......");
+        Toastify({
+          text: "You are offline! Trying to reconnect......",
+          duration: 3000,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "right", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: "linear-gradient(to left, #ff5f6d, blue)",
+          },
+          onClick: function () {}, // Callback after click
+        }).showToast();
+      });
+      const formData = {};
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        formData[name] = value;
+      };
+      //
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        try {
+          checkout(formData);
+          Toastify({
+            text: "Your data is synced successfuly",
+            duration: 6000,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to left, #ff5f6d, blue)",
+            },
+            onClick: function () {}, // Callback after click
+          }).showToast();
+        } catch (error) {
+          Toastify({
+            text: "Your data failed to sync",
+            duration: 6000,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to left, #ff5f6d, blue)",
+            },
+            onClick: function () {}, // Callback after click
+          }).showToast();
+          console.log(error);
         }
-        // 
-        const handleSubmit = (e) => {
-            e.preventDefault();
-            try {
-                checkout(formData)
-                Toastify({
-                    text: "Your data is synced successfuly",
-                    duration: 6000,
-                    close: true,
-                    gravity: "top", // `top` or `bottom`
-                    position: "right", // `left`, `center` or `right`
-                    stopOnFocus: true, // Prevents dismissing of toast on hover
-                    style: {
-                        background: "linear-gradient(to left, #ff5f6d, blue)",
-                    },
-                    onClick: function () { }, // Callback after click
-                }).showToast();
-
-            } catch (error) {
-                Toastify({
-                    text: "Your data failed to sync",
-                    duration: 6000,
-                    close: true,
-                    gravity: "top", // `top` or `bottom`
-                    position: "right", // `left`, `center` or `right`
-                    stopOnFocus: true, // Prevents dismissing of toast on hover
-                    style: {
-                        background: "linear-gradient(to left, #ff5f6d, blue)",
-                    },
-                    onClick: function () { }, // Callback after click
-                }).showToast();
-                console.log(error);
-            }
-        }
-        // 
+      };
     </script>
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <h2>Checkout Form</h2>
     <div class="row">
-        <div class="col-75">
-            <div class="container">
-                <form onsubmit="handleSubmit(event)">
-
-                    <!-- order summary -->
-                    <div class="col-50">
-                        <h3>Order Summary</h3>
-                        <div class="cart-item">
-                            <!-- dynamic data -->
-                        </div>
-                        <div class="total-price">
-                            <!-- display price here -->
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-50">
-                            <h3>Billing Details</h3>
-                            <label for="fname">Full Name</label>
-                            <input type="text" id="fname" name="name" placeholder="Name" required
-                                oninput="handleChange(event)">
-                            <label for="email"> Email</label>
-                            <input type="text" id="email" name="email" placeholder="Email" required
-                                oninput="handleChange(event)">
-                            <label for="adr"> Phone</label>
-                            <input type="text" id="adr" name="phone" placeholder="Phone" required
-                                oninput="handleChange(event)">
-                            <label for="city"> Amount</label>
-                            <input type="text" id="city" name="amount" placeholder="Amount"
-                                oninput="handleChange(event)">
-                        </div>
-
-                        <div class="col-50">
-                            <h3>Payment Details</h3>
-                            <label for="fname">Please select your mode of Payment</label>
-
-                            <div class="dropdown">
-                                <div class="select-box">
-                                    <select>
-                                        <option> Credit Card</option>
-                                        <option> Debit Card</option>
-                                        <option> E-Wallet</option>
-
-                                    </select>
-                                </div><br>
-                            </div>
-                            <label for="ccnum">Card number</label>
-                            <input type="text" id="ccnum" name="cardnumber" placeholder="Card number" required>
-                            <label for="ccnum">CVV</label>
-                            <input type="text" id="ccnum" name="cvv" placeholder="CVV" required>
-                            <div class="row">
-                                <div class="col-50">
-                                    <label for="expyear">Valid from</label>
-                                    <input type="text" id="validfrom" name="validfrom" placeholder="Valid From">
-                                </div>
-                                <div class="col-50">
-                                    <label for="expyear">To</label>
-                                    <input type="text" id="validto" name="validto" placeholder="To">
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <label>
-                        <input type="checkbox" required name="terms"> I Agree with the above details.
-                    </label>
-                    <input type="submit" value="Checkout" class="btn">
-                    <a href="./index.html"><input type="submit" value="Go back" class="back-btn"></a>
-                </form>
+      <div class="col-75">
+        <div class="container">
+          <form onsubmit="handleSubmit(event)">
+            <!-- order summary -->
+            <div class="col-50">
+              <h3>Order Summary</h3>
+              <div class="cart-item">
+                <!-- dynamic data -->
+              </div>
+              <div class="total-price">
+                <!-- display price here -->
+              </div>
             </div>
+
+            <div class="row">
+              <div class="col-50">
+                <h3>Billing Details</h3>
+                <label for="fname">Full Name</label>
+                <input
+                  type="text"
+                  id="fname"
+                  name="name"
+                  placeholder="Name"
+                  required
+                  oninput="handleChange(event)"
+                />
+                <label for="email"> Email</label>
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                  oninput="handleChange(event)"
+                />
+                <label for="adr"> Phone</label>
+                <input
+                  type="text"
+                  id="adr"
+                  name="phone"
+                  placeholder="Phone"
+                  required
+                  oninput="handleChange(event)"
+                />
+                <label for="city"> Amount</label>
+                <input
+                  type="text"
+                  id="city"
+                  name="amount"
+                  placeholder="Amount"
+                  oninput="handleChange(event)"
+                />
+              </div>
+
+              <div class="col-50">
+                <h3>Payment Details</h3>
+                <label for="fname">Please select your mode of Payment</label>
+
+                <div class="dropdown">
+                  <div class="select-box">
+                    <select>
+                      <option>Credit Card</option>
+                      <option>Debit Card</option>
+                      <option>E-Wallet</option>
+                    </select>
+                  </div>
+                  <br />
+                </div>
+                <label for="ccnum">Card number</label>
+                <input
+                  type="text"
+                  id="ccnum"
+                  name="cardnumber"
+                  placeholder="Card number"
+                  required
+                />
+                <label for="ccnum">CVV</label>
+                <input
+                  type="text"
+                  id="ccnum"
+                  name="cvv"
+                  placeholder="CVV"
+                  required
+                />
+                <div class="row">
+                  <div class="col-50">
+                    <label for="expyear">Valid from</label>
+                    <input
+                      type="text"
+                      id="validfrom"
+                      name="validfrom"
+                      placeholder="Valid From"
+                    />
+                  </div>
+                  <div class="col-50">
+                    <label for="expyear">To</label>
+                    <input
+                      type="text"
+                      id="validto"
+                      name="validto"
+                      placeholder="To"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <label>
+              <input type="checkbox" required name="terms" /> I Agree with the
+              above details.
+            </label>
+            <input type="submit" value="Checkout" class="btn" />
+            <a href="./index.html"
+              ><input type="submit" value="Go back" class="back-btn"
+            /></a>
+          </form>
         </div>
+      </div>
     </div>
 
     <!-- javascript -->
     <script src="./js/script.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-</body>
-
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="./js/app.js"></script>
+  </body>
 </html>

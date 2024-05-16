@@ -7,7 +7,6 @@ const add = (value) => {
 let cacheNameinitial = `cache-version0`;
 let cacheName = add(cacheNameinitial);
 cacheNameinitial = cacheName;
-// define the cache name
 // const cacheName = 'v1';
 const cacheAssets = [
   "/",
@@ -25,18 +24,14 @@ const cacheAssets = [
   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css",
   "https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css",
 ];
-
-// offline function
-
 // Install the service worker
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches
-      .open(`${cacheName}`)
-      .then((cache) => cache.addAll(cacheAssets))
-      .catch((error) => {
-        console.error("Cache installation failed:", error);
-      })
+    Promise.all([
+      caches.open(`${cacheName}`).then((cache) => cache.addAll(cacheAssets)),
+    ]).catch((error) => {
+      console.error("Installation failed:", error);
+    })
   );
 });
 
@@ -113,7 +108,10 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
-//
+self.addEventListener("notificationclick", function (event) {
+  event.notification.close();
+  alert(event.notification.body);
+});
 // Background sync integration
 self.addEventListener("sync", function (event) {
   console.log(event.tag, " Is the service sync tag");
@@ -121,10 +119,25 @@ self.addEventListener("sync", function (event) {
     event.waitUntil(syncFormData());
   }
 });
-
-// Sync function to synchronize form data with the server
+// Check for offline
+self.addEventListener("offline", function (event) {
+  console.log("You are currently offline");
+  if (event.tag === "formSync") {
+    event.waitUntil(syncFormData());
+  }
+});
+// Check for online
+self.addEventListener("online", function (event) {
+  console.log("You are now online!");
+  syncFormData();
+});
 function syncFormData() {
   return new Promise((resolve, reject) => {
+    if (!navigator.onLine) {
+      console.log("Listening for the user to come online...");
+      resolve("Listening for the user to come online...");
+      return;
+    }
     const request = indexedDB.open("CoffeeAppDatabase", 1);
     request.onerror = (event) => {
       reject("Error opening database");
@@ -138,41 +151,47 @@ function syncFormData() {
       getDataRequest.onsuccess = () => {
         const formData = getDataRequest.result;
         // Send form data to server using fetch API
-        // fetch('endpoint', {
-        //     method: 'POST',
-        //     body: JSON.stringify(formData),
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
+        // fetch("endpoint", {
+        //   method: "POST",
+        //   body: JSON.stringify(formData),
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
         // })
-        // .then((response) => {
+        //   .then((response) => {
         //     // Data successfully synchronized with server
-        //     resolve('Data synchronized successfully');
-        // })
-        // .catch((error) => {
+        //     console.log("Data synchronized successfully");
+        //     resolve("Data synchronized successfully");
+        //   })
+        //   .catch((error) => {
         //     // Error synchronizing data with server
-        //     reject('Error synchronizing data with server');
-        // });
-        console.log(
-          "You came online and the data has been synced to the server for process",
-          formData
-        );
+        //     console.error("Error synchronizing data with server:", error);
+        //     reject("Error synchronizing data with server");
+        //   });
+        sendPushNotification("Data synchronized successfully");
       };
-
       getDataRequest.onerror = () => {
         reject("Error retrieving data from IndexedDB");
       };
     };
   });
 }
-
+function sendPushNotification(message) {
+  self.registration.showNotification(
+    "Your data has been sent to the server***",
+    {
+      body: message,
+      icon: "./img/icons/icon-72x72.png",
+    }
+  );
+}
 // Push notification event listener
-self.addEventListener("push", (event) => {
-  const title = "Cool Coffee Shop";
-  const options = {
-    body: event.data.text(),
-    icon: './img/icons/icon-72x72.png"',
-    badge: "./img/icons/icon-72x72.png",
-  };
-  event.waitUntil(self.registration.showNotification(title, options));
-});
+// self.addEventListener("push", (event) => {
+//   const title = "Cool Coffee Shop";
+//   const options = {
+//     body: event.data.text(),
+//     icon: "./img/icons/icon-72x72.png",
+//     badge: "./img/icons/icon-72x72.png",
+//   };
+//   event.waitUntil(self.registration.showNotification(title, options));
+// });

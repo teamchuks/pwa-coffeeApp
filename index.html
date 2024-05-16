@@ -1,88 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coffee Shop Website</title>
-    <link href="./img/logo-2.png" rel="icon">
+    <link href="./img/logo-2.png" rel="icon" />
 
     <!-- cdn link and stylesheet -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
 
     <!-- manifest.json -->
-    <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="./manifest.json" />
 
     <!-- service worker requirement -->
-    <meta name="theme-color" content="#FFE1C4">
-</head>
+    <meta name="theme-color" content="#FFE1C4" />
+  </head>
 
-<body>
+  <body>
     <!-- header section   -->
     <header class="header">
-        <a href="#" class="logo">
-            <img src="./img/logo-2.png" alt="">
-        </a>
-        <nav class="navbar">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#menu">Menu</a>
-            <a href="#products">Products</a>
-            <a href="#review">reviews</a>
-            <a href="#contact">Contact</a>
-            <a href="#blogs">blogs</a>
-        </nav>
+      <a href="#" class="logo">
+        <img src="./img/logo-2.png" alt="" />
+      </a>
+      <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#products">Products</a>
+        <a href="#review">reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="#blogs">blogs</a>
+      </nav>
 
-        <div class="icons">
-            <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-shopping-cart" id="cart-btn">
-                <h1 class="notification" id="counter"></h1>
-            </div>
-            <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-user" id="login-btn"></div>
+      <div class="icons">
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn">
+          <h1 class="notification" id="counter"></h1>
         </div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-user" id="login-btn"></div>
+      </div>
 
-        <div class="search-form">
-            <input type="search" id="search-box" placeholder="search here...">
-            <label for="search-box" class="fas fa-search"></label>
+      <div class="search-form">
+        <input type="search" id="search-box" placeholder="search here..." />
+        <label for="search-box" class="fas fa-search"></label>
+      </div>
+
+      <div class="cart-items-container">
+        <div class="content">
+          <h3 class="btn">Your Items</h3>
+          <div class="total">
+            <h2 class="price total-tital">Grand Total :</h2>
+            <h2 class="total-Amount">N0</h2>
+          </div>
+
+          <div>
+            <a href="./checkout.html" class="btn">Checkout Items</a>
+          </div>
         </div>
+      </div>
 
-        <div class="cart-items-container">
-            <div class="content">
-                <h3 class="btn"> Your Items</h3>
-                <div class="total">
-                    <h2 class="price total-tital">Grand Total : </h2>
-                    <h2 class="total-Amount">N0</h2>
-                </div>
-
-                <div>
-                    <a href="./checkout.html" class="btn">Checkout Items</a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="login-form-container">
-            <div id="close-login-btn" class="fas fa-times"></div>
-            <form action="" method="post">
-                <h3>sign in</h3>
-                <span>username</span>
-                <input type="email" name="" class="box" id="email" placeholder="enter your email">
-                <span>password</span>
-                <input type="password" name="" class="box" id="password" placeholder="enter your password">
-                <div class="checkbox">
-                    <input type="checkbox" name="" id="remember-me">
-                    <label for="remember-me"> remember me</label>
-                </div>
-                <input type="submit" value="sign in" class="btn">
-                <p>forget password ? <a href="#">click here</a></p>
-                <p>don't have an account ? <a href="#">create one</a></p>
-            </form>
-        </div>
+      <div class="login-form-container">
+        <div id="close-login-btn" class="fas fa-times"></div>
+        <form action="" method="post">
+          <h3>sign in</h3>
+          <span>username</span>
+          <input
+            type="email"
+            name=""
+            class="box"
+            id="email"
+            placeholder="enter your email"
+          />
+          <span>password</span>
+          <input
+            type="password"
+            name=""
+            class="box"
+            id="password"
+            placeholder="enter your password"
+          />
+          <div class="checkbox">
+            <input type="checkbox" name="" id="remember-me" />
+            <label for="remember-me"> remember me</label>
+          </div>
+          <input type="submit" value="sign in" class="btn" />
+          <p>forget password ? <a href="#">click here</a></p>
+          <p>don't have an account ? <a href="#">create one</a></p>
+        </form>
+      </div>
     </header>
 
     <!-- header section ends -->
@@ -90,16 +106,16 @@
     <!-- home section starts  -->
 
     <section class="home" id="home">
-
-        <div class="content">
-            <!-- <h3>Life Begins With</h3> -->
-            <p>Life begins with</p>
-            <h3>Coffee</h3>
-            <p>Coffee is a brewed drink prepared from roasted coffee beans, the seeds of berries from certain flowering
-                plants in the Coffea genus. </p>
-            <a href="#" class="btn">get yours now</a>
-        </div>
-
+      <div class="content">
+        <!-- <h3>Life Begins With</h3> -->
+        <p>Life begins with</p>
+        <h3>Coffee</h3>
+        <p>
+          Coffee is a brewed drink prepared from roasted coffee beans, the seeds
+          of berries from certain flowering plants in the Coffea genus.
+        </p>
+        <a href="#" class="btn">get yours now</a>
+      </div>
     </section>
 
     <!-- home section ends -->
@@ -107,226 +123,230 @@
     <!-- about section starts  -->
 
     <section class="about" id="about">
+      <h1 class="heading"><span>about</span> us</h1>
 
-        <h1 class="heading"> <span>about</span> us </h1>
-
-        <div class="row">
-
-            <div class="image">
-                <img src="img/about-img.jpg" alt="">
-            </div>
-
-            <div class="content">
-                <h3>what makes our coffee special?</h3>
-                <p>The seeds are then roasted, a process which transforms them into a consumable product: roasted
-                    coffee, which is ground into fine particles that are typically steeped in hot water before being
-                    filtered out, producing a cup of coffee.</p>
-                <p>Coffee is darkly colored, bitter, slightly acidic and has a stimulating effect in humans, primarily
-                    due to its caffeine content. It is one of the most popular drinks in the world[4] and can be
-                    prepared and presented in a variety of ways
-                    (e.g., espresso, French press, caffè latte, or already-brewed canned coffee).</p>
-                <a href="#" class="btn">learn more</a>
-            </div>
+      <div class="row">
+        <div class="image">
+          <img src="img/about-img.jpg" alt="" />
         </div>
 
+        <div class="content">
+          <h3>what makes our coffee special?</h3>
+          <p>
+            The seeds are then roasted, a process which transforms them into a
+            consumable product: roasted coffee, which is ground into fine
+            particles that are typically steeped in hot water before being
+            filtered out, producing a cup of coffee.
+          </p>
+          <p>
+            Coffee is darkly colored, bitter, slightly acidic and has a
+            stimulating effect in humans, primarily due to its caffeine content.
+            It is one of the most popular drinks in the world[4] and can be
+            prepared and presented in a variety of ways (e.g., espresso, French
+            press, caffè latte, or already-brewed canned coffee).
+          </p>
+          <a href="#" class="btn">learn more</a>
+        </div>
+      </div>
     </section>
 
     <!-- about section ends -->
 
     <!-- menu section starts  -->
 
-
     <section class="menu" id="menu">
+      <h1 class="heading">our <span>menu</span></h1>
 
-        <h1 class="heading"> our <span>menu</span> </h1>
-
-        <div class="box-container">
-
-            <div class="box">
-                <img src="img/menu_1.jpg" alt="">
-                <h3>Americano coffee</h3>
-                <div class="price">N640 </div>
-                <div class="price"><span>N680/-</span></div>
-                <a href="#" class="btn btn-card" id="btn-card">add to cart</a>
-            </div>
-
-            <div class="box">
-                <img src="img/menu_2.jpg" alt="">
-                <h3>Cold Brewed Coffee</h3>
-                <div class="price">N780 </div>
-                <div class="price"><span>N880</span></div>
-                <a href="#" class="btn btn-card" id="btn-card1">add to cart</a>
-            </div>
-
-            <div class="box">
-                <img src="img/menu_3.jpg" alt="">
-                <h3>Cappuccino coffee</h3>
-                <div class="price">N700 </div>
-                <div class="price"><span>N780</span></div>
-                <a href="#" class="btn btn-card" id="btn-card2">add to cart</a>
-            </div>
-
-            <div class="box">
-                <img src="img/menu_4.jpg" alt="">
-                <h3>Macchiato coffee</h3>
-                <div class="price">N657 </div>
-                <div class="price"><span>N680</span></div>
-                <a href="#" class="btn btn-card" id="btn-card3">add to cart</a>
-            </div>
-
-            <div class="box">
-                <img src="img/menu_5.jpg" alt="">
-                <h3>Turkish coffee</h3>
-                <div class="price">N215 </div>
-                <div class="price"><span>N457</span></div>
-                <a href="#" class="btn btn-card" id="btn-card4">add to cart</a>
-            </div>
-
-            <div class="box">
-                <img src="img/menu_6.jpg" alt="">
-                <h3>Espresso coffee</h3>
-                <div class="price">N820 </div>
-                <div class="price"><span>N857</span></div>
-                <a href="#" class="btn btn-card" id="btn-card5">add to cart</a>
-            </div>
-
+      <div class="box-container">
+        <div class="box">
+          <img src="img/menu_1.jpg" alt="" />
+          <h3>Americano coffee</h3>
+          <div class="price">N640</div>
+          <div class="price"><span>N680/-</span></div>
+          <a href="#" class="btn btn-card" id="btn-card">add to cart</a>
         </div>
 
+        <div class="box">
+          <img src="img/menu_2.jpg" alt="" />
+          <h3>Cold Brewed Coffee</h3>
+          <div class="price">N780</div>
+          <div class="price"><span>N880</span></div>
+          <a href="#" class="btn btn-card" id="btn-card1">add to cart</a>
+        </div>
+
+        <div class="box">
+          <img src="img/menu_3.jpg" alt="" />
+          <h3>Cappuccino coffee</h3>
+          <div class="price">N700</div>
+          <div class="price"><span>N780</span></div>
+          <a href="#" class="btn btn-card" id="btn-card2">add to cart</a>
+        </div>
+
+        <div class="box">
+          <img src="img/menu_4.jpg" alt="" />
+          <h3>Macchiato coffee</h3>
+          <div class="price">N657</div>
+          <div class="price"><span>N680</span></div>
+          <a href="#" class="btn btn-card" id="btn-card3">add to cart</a>
+        </div>
+
+        <div class="box">
+          <img src="img/menu_5.jpg" alt="" />
+          <h3>Turkish coffee</h3>
+          <div class="price">N215</div>
+          <div class="price"><span>N457</span></div>
+          <a href="#" class="btn btn-card" id="btn-card4">add to cart</a>
+        </div>
+
+        <div class="box">
+          <img src="img/menu_6.jpg" alt="" />
+          <h3>Espresso coffee</h3>
+          <div class="price">N820</div>
+          <div class="price"><span>N857</span></div>
+          <a href="#" class="btn btn-card" id="btn-card5">add to cart</a>
+        </div>
+      </div>
     </section>
 
     <!-- menu section ends -->
 
     <section class="products" id="products">
+      <h1 class="heading">our <span>products</span></h1>
 
-        <h1 class="heading"> our <span>products</span> </h1>
-
-        <div class="box-container">
-
-            <div class="box">
-                <div class="icons">
-                    <a href="#" class="fas fa-shopping-cart"></a>
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="img/product_1.jpg" alt="">
-                </div>
-                <div class="content">
-                    <h3>Latte coffee</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="price">N3,000.00 <span>N1,500.00</span></div>
-                </div>
+      <div class="box-container">
+        <div class="box">
+          <div class="icons">
+            <a href="#" class="fas fa-shopping-cart"></a>
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+          </div>
+          <div class="image">
+            <img src="img/product_1.jpg" alt="" />
+          </div>
+          <div class="content">
+            <h3>Latte coffee</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
             </div>
-
-            <div class="box">
-                <div class="icons">
-                    <a href="#" class="fas fa-shopping-cart"></a>
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="img/product_2.jpg" alt="" width="217.1rem">
-                </div>
-                <div class="content">
-                    <h3>Affogato coffee</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="price">N1,200.00 <span>N1,800.00</span></div>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="icons">
-                    <a href="#" class="fas fa-shopping-cart"></a>
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="img/product_3.jpg" alt="" width="208.1rem" height="10px">
-                </div>
-                <div class="content">
-                    <h3>Cappuccino coffee</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="price">N2,400.00 <span>N1,800.00</span></div>
-                </div>
-            </div>
-
+            <div class="price">N3,000.00 <span>N1,500.00</span></div>
+          </div>
         </div>
 
+        <div class="box">
+          <div class="icons">
+            <a href="#" class="fas fa-shopping-cart"></a>
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+          </div>
+          <div class="image">
+            <img src="img/product_2.jpg" alt="" width="217.1rem" />
+          </div>
+          <div class="content">
+            <h3>Affogato coffee</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="price">N1,200.00 <span>N1,800.00</span></div>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="icons">
+            <a href="#" class="fas fa-shopping-cart"></a>
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+          </div>
+          <div class="image">
+            <img
+              src="img/product_3.jpg"
+              alt=""
+              width="208.1rem"
+              height="10px"
+            />
+          </div>
+          <div class="content">
+            <h3>Cappuccino coffee</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="price">N2,400.00 <span>N1,800.00</span></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- review section starts  -->
 
     <section class="review" id="review">
+      <h1 class="heading">customer's <span>review</span></h1>
 
-        <h1 class="heading"> customer's <span>review</span> </h1>
-
-        <div class="box-container">
-
-            <div class="box">
-                <img src="img/quote-img-1.png" alt="" class="quote" width="74.7rem">
-                <p>Purchase decisions can be made with easy access to product information through reviews from users who
-                    have knowledge from an experience, information or tangible good.</p>
-                <img src="img/pic_1.jpg" class="user" alt="">
-                <h3>john deo</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="img/quote-img-1.png" alt="" class="quote" width="74.7rem">
-                <p>For goods which value is derived from knowledge and information, user reviews provide a "wealth of
-                    experience information," and therefore increase potential consumers.</p>
-                <img src="img/pic_2.jpg" class="user" alt="">
-                <h3>john deo</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="img/quote-img-1.png" alt="" class="quote" width="74.7rem">
-                <p>Producers of goods and services can utilise user reviews through word of mouth (WOM) recognition
-                    enhancing their reputation, but can also be disparaged.</p>
-                <img src="img/pic_3.jpg" class="user" alt="">
-                <h3>john deo</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-
+      <div class="box-container">
+        <div class="box">
+          <img src="img/quote-img-1.png" alt="" class="quote" width="74.7rem" />
+          <p>
+            Purchase decisions can be made with easy access to product
+            information through reviews from users who have knowledge from an
+            experience, information or tangible good.
+          </p>
+          <img src="img/pic_1.jpg" class="user" alt="" />
+          <h3>john deo</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
         </div>
 
+        <div class="box">
+          <img src="img/quote-img-1.png" alt="" class="quote" width="74.7rem" />
+          <p>
+            For goods which value is derived from knowledge and information,
+            user reviews provide a "wealth of experience information," and
+            therefore increase potential consumers.
+          </p>
+          <img src="img/pic_2.jpg" class="user" alt="" />
+          <h3>john deo</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+        </div>
+
+        <div class="box">
+          <img src="img/quote-img-1.png" alt="" class="quote" width="74.7rem" />
+          <p>
+            Producers of goods and services can utilise user reviews through
+            word of mouth (WOM) recognition enhancing their reputation, but can
+            also be disparaged.
+          </p>
+          <img src="img/pic_3.jpg" class="user" alt="" />
+          <h3>john deo</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- review section ends -->
@@ -334,40 +354,41 @@
     <!-- contact section starts  -->
 
     <section class="contact" id="contact">
+      <h1 class="heading"><span>contact</span> us</h1>
 
-        <h1 class="heading"> <span>contact</span> us </h1>
+      <div class="row">
+        <iframe
+          class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30153.788252261566!2d72.82321484621745!3d19.141690214227783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63aceef0c69%3A0x2aa80cf2287dfa3b!2sJogeshwari%20West%2C%20Mumbai%2C%20Maharashtra%20400047!5e0!3m2!1sen!2sin!4v1629452077891!5m2!1sen!2sin"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
 
-        <div class="row">
-
-            <iframe class="map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30153.788252261566!2d72.82321484621745!3d19.141690214227783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63aceef0c69%3A0x2aa80cf2287dfa3b!2sJogeshwari%20West%2C%20Mumbai%2C%20Maharashtra%20400047!5e0!3m2!1sen!2sin!4v1629452077891!5m2!1sen!2sin"
-                allowfullscreen="" loading="lazy"></iframe>
-
-            <form action="php/contact.php" method="post">
-                <h3>get in touch</h3>
-                <div class="inputBox">
-                    <span class="fas fa-user"></span>
-                    <input type="text" placeholder="name" name="username">
-                </div>
-                <div class="inputBox">
-                    <span class="fas fa-envelope"></span>
-                    <input type="email" placeholder="email" name="userEmail">
-                </div>
-                <div class="inputBox">
-                    <span class="fas fa-phone"></span>
-                    <input type="number" placeholder="number" name="userPhone">
-                </div>
-                <button type="button" class="btn" onclick="openPopup()">contact now</button>
-                <div class="popup" id="popup">
-                    <!-- <img src="img/icons-check.png"> -->
-                    <h2>Thank You!</h2>
-                    <p>Your details has been successfully submitted. Thanks!</p>
-                    <button type="submit" onclick="closePopup()">Ok</button>
-                </div>
-            </form>
-
-        </div>
-
+        <form action="php/contact.php" method="post">
+          <h3>get in touch</h3>
+          <div class="inputBox">
+            <span class="fas fa-user"></span>
+            <input type="text" placeholder="name" name="username" />
+          </div>
+          <div class="inputBox">
+            <span class="fas fa-envelope"></span>
+            <input type="email" placeholder="email" name="userEmail" />
+          </div>
+          <div class="inputBox">
+            <span class="fas fa-phone"></span>
+            <input type="number" placeholder="number" name="userPhone" />
+          </div>
+          <button type="button" class="btn" onclick="openPopup()">
+            contact now
+          </button>
+          <div class="popup" id="popup">
+            <!-- <img src="img/icons-check.png"> -->
+            <h2>Thank You!</h2>
+            <p>Your details has been successfully submitted. Thanks!</p>
+            <button type="submit" onclick="closePopup()">Ok</button>
+          </div>
+        </form>
+      </div>
     </section>
 
     <!-- contact section ends -->
@@ -375,49 +396,54 @@
     <!-- blogs section starts  -->
 
     <section class="blogs" id="blogs">
+      <h1 class="heading">our <span>blogs</span></h1>
 
-        <h1 class="heading"> our <span>blogs</span> </h1>
-
-        <div class="box-container">
-
-            <div class="box">
-                <div class="image">
-                    <img src="img/blog_1.jpg" alt="">
-                </div>
-                <div class="content">
-                    <a href="#" class="title">tasty and refreshing coffee</a>
-                    <span>by admin / 21st may, 2021</span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, dicta.</p>
-                    <a href="#" class="btn">read more</a>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="image">
-                    <img src="img/blog_2.jpg" alt="">
-                </div>
-                <div class="content">
-                    <a href="#" class="title">tasty and refreshing coffee</a>
-                    <span>by admin / 21st may, 2021</span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, dicta.</p>
-                    <a href="#" class="btn">read more</a>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="image">
-                    <img src="img/blog_3.jpg" alt="">
-                </div>
-                <div class="content">
-                    <a href="#" class="title">tasty and refreshing coffee</a>
-                    <span>by admin / 21st may, 2021</span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, dicta.</p>
-                    <a href="#" class="btn">read more</a>
-                </div>
-            </div>
-
+      <div class="box-container">
+        <div class="box">
+          <div class="image">
+            <img src="img/blog_1.jpg" alt="" />
+          </div>
+          <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>by admin / 21st may, 2021</span>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
+              dicta.
+            </p>
+            <a href="#" class="btn">read more</a>
+          </div>
         </div>
 
+        <div class="box">
+          <div class="image">
+            <img src="img/blog_2.jpg" alt="" />
+          </div>
+          <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>by admin / 21st may, 2021</span>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
+              dicta.
+            </p>
+            <a href="#" class="btn">read more</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="image">
+            <img src="img/blog_3.jpg" alt="" />
+          </div>
+          <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>by admin / 21st may, 2021</span>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
+              dicta.
+            </p>
+            <a href="#" class="btn">read more</a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- blogs section ends -->
@@ -425,94 +451,41 @@
     <!-- footer section starts  -->
 
     <section class="footer">
+      <div class="share">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-pinterest"></a>
+      </div>
 
-        <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
-            <a href="#" class="fab fa-pinterest"></a>
-        </div>
+      <div class="links">
+        <a href="#">home</a>
+        <a href="#">about</a>
+        <a href="#">menu</a>
+        <a href="#">products</a>
+        <a href="#">review</a>
+        <a href="#">contact</a>
+        <a href="#">blogs</a>
+      </div>
 
-        <div class="links">
-            <a href="#">home</a>
-            <a href="#">about</a>
-            <a href="#">menu</a>
-            <a href="#">products</a>
-            <a href="#">review</a>
-            <a href="#">contact</a>
-            <a href="#">blogs</a>
-        </div>
-
-        <div class="credit">created by <span>mr. priyanshu singh</span> | all rights reserved</div>
-
+      <div class="credit">
+        created by <span>mr. priyanshu singh</span> | all rights reserved
+      </div>
     </section>
 
     <!-- footer section ends -->
 
-
     <!-- custom js file link  -->
     <script src="./js/itemsData.js"></script>
-    <!-- <script src="./js/app.js"></script> -->
+
     <script src="./js/script.js"></script>
     <script src="./js/checkout.js"></script>
     <script src="./js/indexedDB.js"></script>
-    <script>
-         
-            // Service worker registration
-        if ("serviceWorker" in navigator && !navigator.serviceWorker.controller) {
-            console.log(navigator.serviceWorker.controller, " Is controller");
-            window.addEventListener("load", async () => {
-                try {
-                    const version = Math.random().toString(36).substring(7);
-                    const registration = await navigator.serviceWorker.register(
-                        `sw.js?v=${version}`
-                    );
-                    console.log("Service Worker registered", registration.scope);
-                } catch (error) {
-                    console.error("Service Worker registration failed", error);
-                }
-            });
-        }
-
-        window.addEventListener("offline", () => {
-            console.log("You are offline! Trying to reconnect......");
-            Toastify({
-                text: "You are offline",
-                duration: 3000,
-                close: true,
-                gravity: "top", // `top` or `bottom`
-                position: "right", // `left`, `center` or `right`
-                stopOnFocus: true, // Prevents dismissing of toast on hover
-                style: {
-                    background: "linear-gradient(to left, #ff5f6d, blue)",
-                },
-                onClick: function () { } // Callback after click
-            }).showToast();
-            // No need to use self.clients.matchAll() here
-        });
-
-        navigator.serviceWorker.addEventListener('message', function (event) {
-            if (event.data.type === 'offline') {
-                console.log('You are offline');
-                // Show a toast or any other UI update to notify the user
-                Toastify({
-                    text: "Invalid Page Accsess",
-                    duration: 5000,
-                    close: true,
-                    gravity: "top", // `top` or `bottom`
-                    position: "left", // `left`, `center` or `right`
-                    stopOnFocus: true, // Prevents dismissing of toast on hover
-                    style: {
-                        background: "linear-gradient(to right, #ff5f6d, #ffc371)",
-                    },
-                    onClick: function () { } // Callback after click
-                }).showToast();
-            }
-        });
-    </script>
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-</body>
-
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="./js/app.js"></script>
+  </body>
 </html>

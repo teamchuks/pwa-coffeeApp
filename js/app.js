@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         console.log("Notification permission denied");
       }
-    })
+    });
   }
 });
 
@@ -43,6 +43,21 @@ window.addEventListener("offline", () => {
   }).showToast();
   // No need to use self.clients.matchAll() here
 });
+window.addEventListener("online", () => {
+  Toastify({
+    text: "You're back online***",
+    duration: 3000,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to left, #ff5f6d, blue)",
+    },
+    onClick: function () {}, // Callback after click
+  }).showToast();
+  // No need to use self.clients.matchAll() here
+});
 
 navigator.serviceWorker.addEventListener("message", function (event) {
   if (event.data.type === "offline") {
@@ -62,11 +77,6 @@ navigator.serviceWorker.addEventListener("message", function (event) {
     }).showToast();
   }
 });
-
-
-
-
-
 
 // register serviceWorker
 /*
@@ -182,5 +192,3 @@ self.addEventListener("activate", (event) => {
 });
 
 */
-
-
